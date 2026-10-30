@@ -1,0 +1,92 @@
+{
+  "name": "RoohiRemov",
+  "description": "Smart Telegram group protection bot (link remover + 17 modules)",
+  "repository": "https://github.com/konbkl/RoohiRemov",
+  "keywords": [
+    "telegram",
+    "bot",
+    "aiogram",
+    "link-remover"
+  ],
+  "stack": "heroku-24",
+  "buildpacks": [
+    {
+      "url": "heroku/python"
+    }
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "env": {
+    "BOT_TOKEN": {
+      "description": "Bot token from @BotFather",
+      "required": true
+    },
+    "OWNER_ID": {
+      "description": "Your Telegram user ID (@userinfobot)",
+      "required": true
+    },
+    "MONGO_URI": {
+      "description": "MongoDB Atlas URI (REQUIRED on Heroku: disk is ephemeral)",
+      "required": true
+    },
+    "MONGO_DB": {
+      "description": "Mongo database name",
+      "required": false,
+      "value": "roohiremov"
+    },
+    "LOG_CHAT_ID": {
+      "description": "Log channel/group ID (-100...). Bot must be admin there",
+      "required": false,
+      "value": ""
+    },
+    "UPDATES_URL": {
+      "description": "Updates channel link",
+      "required": false,
+      "value": "https://t.me/telegram"
+    },
+    "SUPPORT_URL": {
+      "description": "Support group link",
+      "required": false,
+      "value": "https://t.me/telegram"
+    },
+    "OWNER_URL": {
+      "description": "Owner button link (empty = auto from OWNER_ID)",
+      "required": false,
+      "value": ""
+    },
+    "PING_IMG": {
+      "description": "Banner image URL (/start, /ping, help, broadcast post)",
+      "required": false,
+      "value": "https://files.catbox.moe/1egfqy.png"
+    },
+    "START_IMG": {
+      "description": "Override start image (empty = PING_IMG)",
+      "required": false,
+      "value": ""
+    },
+    "PREMIUM_EMOJI": {
+      "description": "Premium emoji (needs Fragment username)",
+      "required": false,
+      "value": "false"
+    },
+    "AUTO_PROMO": {
+      "description": "Daily live promo broadcast (true/false)",
+      "required": false,
+      "value": "true"
+    },
+    "PROMO_AT": {
+      "description": "Promo time HH:MM (24h)",
+      "required": false,
+      "value": "07:00"
+    },
+    "PROMO_TZ": {
+      "description": "Timezone for promo time",
+      "required": false,
+      "value": "Asia/Kolkata"
+    }
+  }
+}
